@@ -1,61 +1,44 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>App Order Cá Nhân</title>
+  <meta charset="UTF-8">
+  <title>Đặt hàng Orchids Villas</title>
 </head>
 <body>
+  <h2>ĐẶT HÀNG ORCHIDS VILLAS</h2>
 
-<h2>🧾 App Order Cá Nhân</h2>
+  <label>Tên khách:</label><br>
+  <input type="text" id="name"><br><br>
 
-<p>Khăn (50.000đ):
-<input type="number" id="item1" value="0" min="0"></p>
+  <label>Chọn món:</label><br>
+  <select id="item">
+    <option>Cà phê</option>
+    <option>Trà đào</option>
+    <option>Bánh ngọt</option>
+  </select><br><br>
 
-<p>Xe  (120.000đ):
-<input type="number" id="item2" value="0" min="0"></p>
+  <label>Số lượng:</label><br>
+  <input type="number" id="qty" value="1"><br><br>
 
-<p>AirPort pickcup (250.000đ):
-<input type="number" id="item3" value="0" min="0"></p>
+  <button onclick="sendWhatsApp()">GỬI ĐƠN QUA WHATSAPP</button>
 
-<button onclick="order()">📦 Đặt hàng</button>
-<button onclick="sendWhatsApp()">📤 Gửi WhatsApp</button>
+  <script>
+    function sendWhatsApp() {
+      var name = document.getElementById("name").value;
+      var item = document.getElementById("item").value;
+      var qty = document.getElementById("qty").value;
 
-<h3 id="total"></h3>
+      var phone = "84333243243";
 
-<script>
-function order() {
-    let total =
-        item1.value * 50000 +
-        item2.value * 120000 +
-        item3.value * 250000;
+      var text =
+        "Đơn hàng Orchids Villas%0A" +
+        "Tên: " + name + "%0A" +
+        "Món: " + item + "%0A" +
+        "Số lượng: " + qty;
 
-    document.getElementById("total").innerText =
-        "Tổng tiền: " + total + " VNĐ";
-}
-
-function sendWhatsApp() {
-    let phone = "84333243243”;
-
-    let message =
-`🧾 ĐƠN HÀNG
-Món 1: ${item1.value}
-Món 2: ${item2.value}
-Món 3: ${item3.value}
-
-Tổng tiền:
-${item1.value * 50000 +
-item2.value * 120000 +
-item3.value * 250000} VNĐ`;
-
-    let url =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(message);
-
-    window.open(url);
-}
-</script>
-
+      var url = "https://wa.me/" + phone + "?text=" + text;
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
 </html>
