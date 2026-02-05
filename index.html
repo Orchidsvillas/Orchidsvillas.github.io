@@ -200,18 +200,16 @@ function calculateTotal() {
     (currentLang === "vi" ? "Tổng tiền: " : "Total: ")
     + total.toLocaleString("vi-VN") + " đ";
 }
-
 function sendWhatsApp() {
-  let room = roomInput.value.trim();
-  let date = dateInput.value;
-  let time = timeInput.value;
+  let room = document.getElementById("room").value.trim();
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
   let phone = "84333243243";
 
   if (!room || !date || !time) {
     alert("Vui lòng nhập đầy đủ thông tin");
     return;
-  }
-
+}
   let msg = currentLang === "vi"
     ? "📌 ĐẶT DỊCH VỤ ORCHIDS VILLAS\n"
     : "📌 ORCHIDS VILLAS SERVICE ORDER\n";
