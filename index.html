@@ -1,230 +1,185 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Orchids Villas – Đặt dịch vụ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Đặt dịch vụ – Orchids Villas</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
+<style>
+/* ===== RESET ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background-image: url("background.jpeg");
-      background-size: cover;
-      background-position: center 40%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
+/* ===== HERO (ẢNH NỀN) ===== */
+.hero {
+  height: 60vh;
+  background-image: url("background.jpeg");
+  background-size: cover;
+  background-position: center;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.4);
-    }
+/* ===== NỘI DUNG ===== */
+.container {
+  max-width: 420px;
+  background: white;
+  margin: -60px auto 40px;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
 
-    .hero-text {
-      position: relative;
-      z-index: 1;
-    }
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
 
-    .hero-text h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+/* ===== INPUT ===== */
+label {
+  font-weight: bold;
+}
 
-    .hero-text p {
-      font-size: 18px;
-    }
+#room {
+  width: 120px;
+  padding: 6px;
+  font-size: 16px;
+  margin-top: 5px;
+}
 
-    /* SECTION */
-    .section {
-      padding: 40px 15px;
-    }
+/* ===== SERVICES ===== */
+.services {
+  margin-top: 20px;
+}
 
-    .box {
-      background: white;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+.service {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.qty {
+  width: 60px;
+  text-align: center;
+  font-size: 15px;
+}
 
-    input[type="text"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
+/* ===== BUTTON ===== */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #25D366;
+  color: white;
+  font-size: 17px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-    /* SERVICES GRID */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .service {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    .service input {
-      margin-right: 6px;
-    }
-
-    /* TOTAL */
-    .total {
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 15px;
-      font-size: 18px;
-    }
-
-    /* BUTTON */
-    button {
-      width: 100%;
-      padding: 15px;
-      background: #2e7d32;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-    }
-
-    button:hover {
-      background: #256428;
-    }
-
-    /* MOBILE */
-    @media (max-width: 480px) {
-      .hero-text h1 {
-        font-size: 28px;
-      }
-    }
-  </style>
+button:hover {
+  background: #1ebc5a;
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-text">
-    <h1>Orchids Villas</h1>
-    <p>Đặt dịch vụ nhanh chóng & tiện lợi</p>
+<!-- ẢNH NỀN -->
+<div class="hero"></div>
+
+<!-- FORM -->
+<div class="container">
+
+<h2>ĐẶT DỊCH VỤ</h2>
+
+<label>Số phòng:</label><br>
+<input type="text" id="room" placeholder="Ví dụ: 203"><br><br>
+
+<strong>Chọn dịch vụ:</strong>
+
+<div class="services">
+
+  <div class="service">
+    <label>
+      <input type="checkbox" value="Khăn tắm" class="service-check">
+      Khăn tắm (50.000đ / cái)
+    </label>
+    <input type="number" class="qty" min="1" value="1">
   </div>
+
+  <div class="service">
+    <label>
+      <input type="checkbox" value="Xe máy" class="service-check">
+      Xe máy (150.000đ / ngày)
+    </label>
+    <input type="number" class="qty" min="1" value="1">
+  </div>
+
+  <div class="service">
+    <label>
+      <input type="checkbox" value="Airport pick up" class="service-check">
+      Airport pick up
+    </label>
+    <input type="number" class="qty" min="1" value="1">
+  </div>
+
+  <div class="service">
+    <label>
+      <input type="checkbox" value="Dọn vệ sinh" class="service-check">
+      Dọn vệ sinh
+    </label>
+    <input type="number" class="qty" min="1" value="1">
+  </div>
+
+  <div class="service">
+    <label>
+      <input type="checkbox" value="Giấy vệ sinh" class="service-check">
+      Giấy vệ sinh
+    </label>
+    <input type="number" class="qty" min="1" value="1">
+  </div>
+
 </div>
 
-<!-- SERVICE SECTION -->
-<div class="section">
-  <div class="box">
+<button onclick="sendWhatsApp()">GỬI ĐƠN QUA WHATSAPP</button>
 
-    <h2>ĐẶT DỊCH VỤ</h2>
-
-    <input type="text" id="room" placeholder="Số phòng (ví dụ: 203)">
-
-    <div class="services">
-      <label class="service">
-        <input type="checkbox" data-name="Khăn tắm" data-price="50000">
-        Khăn tắm<br>50.000 VND
-      </label>
-
-      <label class="service">
-        <input type="checkbox" data-name="Xe máy" data-price="150000">
-        Xe máy<br>150.000 VND
-      </label>
-
-      <label class="service">
-        <input type="checkbox" data-name="Airport pick up" data-price="300000">
-        Airport pick up<br>300.000 VND
-      </label>
-
-      <label class="service">
-        <input type="checkbox" data-name="Dọn vệ sinh" data-price="200000">
-        Dọn vệ sinh<br>200.000 VND
-      </label>
-
-      <label class="service">
-        <input type="checkbox" data-name="Giấy vệ sinh" data-price="30000">
-        Giấy vệ sinh<br>30.000 VND
-      </label>
-
-      <label class="service">
-        <input type="checkbox" data-name="Dụng cụ cá nhân" data-price="0">
-        Dụng cụ cá nhân<br> 0 VND
-      </label>
-    </div>
-
-    <div class="total">
-      Tổng tiền: <span id="total">0</span> VND
-    </div>
-
-    <button onclick="sendWhatsApp()">GỬI QUA WHATSAPP</button>
-
-  </div>
 </div>
 
+<!-- ===== SCRIPT ===== -->
 <script>
-const checkboxes = document.querySelectorAll('.services input');
-const totalEl = document.getElementById('total');
-
-checkboxes.forEach(cb => cb.addEventListener('change', updateTotal));
-
-function updateTotal() {
-  let total = 0;
-  checkboxes.forEach(cb => {
-    if (cb.checked) total += parseInt(cb.dataset.price);
-  });
-  totalEl.innerText = total.toLocaleString('vi-VN');
-}
-
 function sendWhatsApp() {
-  const room = document.getElementById('room').value;
-  let services = '';
-  let total = 0;
+  var room = document.getElementById("room").value.trim();
+  var phone = "84333243243"; // ← ĐỔI SỐ CỦA BẠN
 
-  checkboxes.forEach(cb => {
-    if (cb.checked) {
-      services += '- ' + cb.dataset.name + ' (' + cb.dataset.price + ' VND)%0A';
-      total += parseInt(cb.dataset.price);
-    }
-  });
-
-  if (!room || services === '') {
-    alert('Vui lòng nhập số phòng và chọn dịch vụ');
+  if (room === "") {
+    alert("Vui lòng nhập số phòng");
     return;
   }
 
-  const phone = "84901234567"; // ← SỬA SỐ WHATSAPP
+  var services = document.querySelectorAll(".service");
+  var message = "📌 ĐẶT DỊCH VỤ ORCHIDS VILLAS\n";
+  message += "🏨 Số phòng: " + room + "\n\n";
 
-  const text =
-    "ĐƠN DỊCH VỤ – ORCHIDS VILLAS 🌸%0A" +
-    "Phòng: " + room + "%0A%0A" +
-    "Dịch vụ:%0A" + services + "%0A" +
-    "Tổng tiền: " + total.toLocaleString('vi-VN') + " VND";
+  var hasService = false;
 
-  window.open("https://wa.me/" + phone + "?text=" + text, "_blank");
+  services.forEach(function(service) {
+    var check = service.querySelector(".service-check");
+    var qty = service.querySelector(".qty").value;
+
+    if (check.checked) {
+      hasService = true;
+      message += "• " + check.value + " × " + qty + "\n";
+    }
+  });
+
+  if (!hasService) {
+    alert("Vui lòng chọn ít nhất một dịch vụ");
+    return;
+  }
+
+  var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
 }
 </script>
 
