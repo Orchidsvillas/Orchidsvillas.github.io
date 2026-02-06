@@ -19,21 +19,29 @@ body {
   background-position: center;
 }
 
-/* CONTAINER */
+/* ORDER BACKGROUND */
+.order-bg {
+  background-image: url("order-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0;
+}
+
+/* FORM CONTAINER */
 .container {
   max-width: 1100px;
-  background: white;
-  margin: 0px auto;
-  padding:80px 60px;
+  background: rgba(255,255,255,0.97);
+  margin: 0 auto;
+  padding: 80px 60px;
   border-radius: 18px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
 }
 
 /* GRID */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 40px;
 }
 
 @media (min-width: 768px) {
@@ -44,8 +52,8 @@ body {
 
 /* INPUT */
 input {
-  padding: 6px;
-  font-size: 17px;
+  padding: 8px;
+  font-size: 16px;
 }
 
 #room {
@@ -57,7 +65,7 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .qty {
@@ -68,7 +76,7 @@ input {
 /* BUTTON */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 16px;
   background: #25D366;
   color: white;
@@ -80,6 +88,12 @@ button {
 button:hover {
   background: #1ebc5a;
 }
+
+/* LANGUAGE */
+.lang-switch {
+  text-align: right;
+  margin-bottom: 20px;
+}
 </style>
 </head>
 
@@ -87,94 +101,98 @@ button:hover {
 
 <div class="hero"></div>
 
-<div class="container">
+<div class="order-bg">
+  <div class="container">
 
-<!-- LANGUAGE -->
-<div style="text-align:right;">
-  <button onclick="setLang('vi')">🇻🇳</button>
-  <button onclick="setLang('en')">🇬🇧</button>
-</div>
+    <div class="lang-switch">
+      <button onclick="setLang('vi')">Vietnamese 🇻🇳</button>
+      <button onclick="setLang('en')">English 🇬🇧</button>
+    </div>
 
-<h2 data-vi="ĐẶT DỊCH VỤ" data-en="SERVICE ORDER"></h2>
+    <h2 data-vi="ĐẶT DỊCH VỤ ORCHIDS VILLAS"
+        data-en="ORCHIDS VILLAS SERVICE ORDER"></h2>
 
-<div class="form-grid">
+    <div class="form-grid">
 
-<!-- LEFT -->
-<div>
-  <label data-vi="Số phòng:" data-en="Room number:"></label><br>
-  <input type="text" id="room" placeholder="203"><br><br>
+      <!-- LEFT -->
+      <div>
+        <label data-vi="Số phòng:" data-en="Room number:"></label><br>
+        <input type="text" id="room" placeholder="203"><br><br>
 
-  <label data-vi="Ngày sử dụng:" data-en="Service date:"></label><br>
-  <input type="date" id="date"><br><br>
+        <label data-vi="Ngày sử dụng:" data-en="Service date:"></label><br>
+        <input type="date" id="date"><br><br>
 
-  <label data-vi="Giờ mong muốn:" data-en="Preferred time:"></label><br>
-  <input type="time" id="time"><br>
-</div>
+        <label data-vi="Giờ mong muốn:" data-en="Preferred time:"></label><br>
+        <input type="time" id="time">
+      </div>
 
-<!-- RIGHT -->
-<div>
-  <strong data-vi="Chọn dịch vụ:" data-en="Select services:"></strong><br><br>
+      <!-- RIGHT -->
+      <div>
+        <strong data-vi="Chọn dịch vụ:" data-en="Select services:"></strong><br><br>
 
-  <div class="service">
-    <label>
-      <input type="checkbox" class="service-check" data-price="0"
-        data-vi="Khăn tắm" data-en="Towel">
-      <span data-vi="Khăn tắm (0đ/cái)" data-en="Towel (0 VND/item)"></span>
-    </label>
-    <input type="number" class="qty" min="1" value="1">
+        <!-- SERVICES -->
+        <div class="service">
+          <label>
+            <input type="checkbox" class="service-check" data-price="0"
+              data-vi="Khăn tắm" data-en="Towel">
+            <span data-vi="Khăn tắm (Miễn phí)"
+                  data-en="Towel (Free)"></span>
+          </label>
+          <input type="number" class="qty" min="1" value="1">
+        </div>
+
+        <div class="service">
+          <label>
+            <input type="checkbox" class="service-check" data-price="150000"
+              data-vi="Xe máy" data-en="Motorbike">
+            <span data-vi="Xe máy (150.000đ/ngày)"
+                  data-en="Motorbike (150,000 VND/day)"></span>
+          </label>
+          <input type="number" class="qty" min="1" value="1">
+        </div>
+
+        <div class="service">
+          <label>
+            <input type="checkbox" class="service-check" data-price="300000"
+              data-vi="Đón / Tiễn sân bay"
+              data-en="Airport pick-up / drop-off">
+            <span data-vi="Đón / Tiễn sân bay (300.000đ)"
+                  data-en="Airport pick-up / drop-off (300,000 VND)"></span>
+          </label>
+          <input type="number" class="qty" min="1" value="1">
+        </div>
+
+        <div class="service">
+          <label>
+            <input type="checkbox" class="service-check" data-price="0"
+              data-vi="Giấy vệ sinh" data-en="Toilet paper">
+            <span data-vi="Giấy vệ sinh (Miễn phí)"
+                  data-en="Toilet paper (Free)"></span>
+          </label>
+          <input type="number" class="qty" min="1" value="1">
+        </div>
+
+        <div class="service">
+          <label>
+            <input type="checkbox" class="service-check" data-price="0"
+              data-vi="Bàn chải đánh răng" data-en="Toothbrush">
+            <span data-vi="Bàn chải đánh răng (Miễn phí)"
+                  data-en="Toothbrush (Free)"></span>
+          </label>
+          <input type="number" class="qty" min="1" value="1">
+        </div>
+
+        <p id="total" style="font-weight:bold; text-align:center;">
+          Tổng tiền: 0 đ
+        </p>
+
+        <button onclick="sendWhatsApp()"
+          data-vi="GỬI ĐƠN QUA WHATSAPP"
+          data-en="SEND ORDER VIA WHATSAPP"></button>
+
+      </div>
+    </div>
   </div>
-
-  <div class="service">
-    <label>
-      <input type="checkbox" class="service-check" data-price="150000"
-        data-vi="Xe máy" data-en="Motorbike">
-      <span data-vi="Xe máy (150.000đ/ngày)" data-en="Motorbike (150,000 VND/day)"></span>
-    </label>
-    <input type="number" class="qty" min="1" value="1">
-  </div>
-
-  <div class="service">
-    <label>
-      <input type="checkbox" class="service-check" data-price="0"
-        data-vi="Dọn vệ sinh" data-en="Cleaning">
-      <span data-vi="Dọn vệ sinh" data-en="Cleaning service"></span>
-    </label>
-    <input type="number" class="qty" min="1" value="1">
-  </div>
-<div class="service">
-  <label>
-    <input type="checkbox" class="service-check" data-price="300000"
-      data-vi="Đón / Tiễn sân bay" data-en="Airport pick-up / drop-off">
-    <span data-vi="Đón / Tiễn sân bay (300.000đ)"
-          data-en="Airport pick-up / drop-off (300,000 VND)"></span>
-  </label>
-  <input type="number" class="qty" min="1" value="1">
-</div>
-  <div class="service">
-  <label>
-    <input type="checkbox" class="service-check" data-price="0"
-      data-vi="Giấy vệ sinh" data-en="Toilet paper">
-    <span data-vi="Giấy vệ sinh (Miễn phí)"
-          data-en="Toilet paper (Free)"></span>
-  </label>
-  <input type="number" class="qty" min="1" value="1">
-</div>
-  <div class="service">
-  <label>
-    <input type="checkbox" class="service-check" data-price="0"
-      data-vi="Bàn chải đánh răng" data-en="Toothbrush">
-    <span data-vi="Bàn chải đánh răng (Miễn phí)"
-          data-en="Toothbrush (Free)"></span>
-  </label>
-  <input type="number" class="qty" min="1" value="1">
-</div>
-  
-  <p id="total" style="font-weight:bold; text-align:center;">Tổng tiền: 0 đ</p>
-
-  <button onclick="sendWhatsApp()">GỬI ĐƠN QUA WHATSAPP</button>
-</div>
-
-</div>
 </div>
 
 <script>
@@ -185,6 +203,7 @@ function setLang(lang) {
   document.querySelectorAll("[data-vi]").forEach(el => {
     el.innerText = el.dataset[lang];
   });
+  calculateTotal();
 }
 
 function calculateTotal() {
@@ -200,16 +219,20 @@ function calculateTotal() {
     (currentLang === "vi" ? "Tổng tiền: " : "Total: ")
     + total.toLocaleString("vi-VN") + " đ";
 }
+
 function sendWhatsApp() {
-  let room = document.getElementById("room").value.trim();
-  let date = document.getElementById("date").value;
-  let time = document.getElementById("time").value;
+  let room = roomInput.value.trim();
+  let date = dateInput.value;
+  let time = timeInput.value;
   let phone = "84333243243";
 
   if (!room || !date || !time) {
-    alert("Vui lòng nhập đầy đủ thông tin");
+    alert(currentLang === "vi"
+      ? "Vui lòng nhập đầy đủ thông tin"
+      : "Please fill all required information");
     return;
-}
+  }
+
   let msg = currentLang === "vi"
     ? "📌 ĐẶT DỊCH VỤ ORCHIDS VILLAS\n"
     : "📌 ORCHIDS VILLAS SERVICE ORDER\n";
@@ -223,7 +246,9 @@ function sendWhatsApp() {
     let qty = s.querySelector(".qty").value;
     if (check.checked) {
       let price = parseInt(check.dataset.price);
-      let name = currentLang === "vi" ? check.dataset.vi : check.dataset.en;
+      let name = currentLang === "vi"
+        ? check.dataset.vi
+        : check.dataset.en;
       msg += "• " + name + " × " + qty + "\n";
       total += price * qty;
     }
@@ -235,6 +260,10 @@ function sendWhatsApp() {
 
 document.querySelectorAll(".service-check,.qty")
   .forEach(el => el.addEventListener("change", calculateTotal));
+
+const roomInput = document.getElementById("room");
+const dateInput = document.getElementById("date");
+const timeInput = document.getElementById("time");
 </script>
 
 </body>
